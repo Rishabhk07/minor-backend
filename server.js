@@ -29,6 +29,6 @@ app.post('/addUser' , (req , res)=>{
 });
 
 
-app.listen(8000,(req , res)=>{
-    console.log("server started at port 8000");
+app.listen(app.get('port'),(req , res)=>{
+    console.log("server started at port" + app.get('port'));
 });
