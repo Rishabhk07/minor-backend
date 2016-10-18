@@ -23,8 +23,12 @@ app.use('/cinema',(req , res)=>{
 
 });
 
+app.post('/addUser' , (req , res)=>{
+   console.log(req.body);
+    res.send(req.body);
+});
 
 
-app.listen(8000, '192.168.43.164' ,(req , res)=>{
+app.listen(8000,(req , res)=>{
     console.log("server started at port 8000");
 });
