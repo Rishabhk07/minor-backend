@@ -8,7 +8,7 @@ const mysql = require('mysql');
 
 const cinema = require('./cinemainfo');
 
-
+app.set('port', (process.env.PORT || 5000));
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
 
