@@ -13,7 +13,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
 
 app.set('views' , __dirname + "/views");
-app.use('/', express.static(__dirname + "/public"));
+app.get('/', express.static(__dirname + "/public"));
 
 app.use('/cinema',(req , res)=>{
 
