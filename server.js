@@ -5,9 +5,8 @@ const express = require('express');
 const app = express();
 const bodyparser = require('body-parser');
 const mysql = require('mysql');
-
 const cinema = require('./cinemainfo');
-
+const userAuth = require('./utils/UserAuth');
 app.set('port', (process.env.PORT || 5000));
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
@@ -24,11 +23,13 @@ app.use('/cinema',(req , res)=>{
 });
 
 app.post('/addUser' , (req , res)=>{
-   console.log(req.body);
-    res.send(req.body);
+   userAuth.addUser(req.body , (result)=>{
+       console.log(result);
+       res.send(result);
+    });
 });
 
 
-app.listen(app.get('port'),(req , res)=>{
-    console.log("server started at port" + app.get('port'));
+app.listen(8000,'192.168.43.164',(req , res)=>{
+    console.log("server started at port 8000");
 });
