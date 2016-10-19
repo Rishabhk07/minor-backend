@@ -24,9 +24,15 @@ app.use('/cinema',(req , res)=>{
 
 app.post('/addUser' , (req , res)=>{
    userAuth.addUser(req.body , (result)=>{
-       console.log(result);
-       res.send(result);
+       console.log(result.ops[0]);
+       res.send(result.ops[0]);
     });
+});
+
+app.post('/getUser' , (req ,  res)=>{
+    userAuth.getUser(req.body.email , (docs)=>{
+        res.send(docs);
+    })
 });
 
 

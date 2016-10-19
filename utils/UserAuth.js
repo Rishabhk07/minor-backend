@@ -15,7 +15,7 @@ var getconnection = (cb)=>{
 
 module.exports = {
     addUser:(userData , cb)=>{
-        var db = getconnection((db)=>{
+         getconnection((db)=>{
             const collection = db.collection('UserAuthData');
             collection.insertOne(userData ,(err , result)=>{
                 if (err) throw err;
@@ -23,6 +23,15 @@ module.exports = {
                 cb(result);
                 db.close()});
             });
-
+    },
+    getUser:(email , cb)=>{
+        getconnection((db)=>{
+            const collection = db.collection('UserAuthData');
+            collection.find({"email":email}).toArray((err, docs)=>{
+                if(err) throw err;
+                console.log(docs[0]);
+                cb(docs[0]);
+            })
+        })
     }
 };
