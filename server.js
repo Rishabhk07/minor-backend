@@ -16,12 +16,14 @@ var fcm = new FCM(serverKey);
 var price = 240;
 
 app.use(express.static(path.join(__dirname , 'public')));
-app.set('port', (process.env.PORT || 5000));
+app.set('port' , process.env.PORT || 3000);
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
 app.set('view engine' , 'hbs');
 app.set('views' , __dirname + "/views");
 app.get('/', express.static(__dirname + "/public"));
+
+var port = process.env.PORT || 3000;
 
 app.use('/cinema',(req , res)=>{
 
@@ -217,7 +219,7 @@ function calculate(){
 
 
 
-app.listen(3000,(req , res)=>{
+app.listen(port,(req , res)=>{
 
     console.log("server started at port 8000");
     calculate();
