@@ -91,6 +91,7 @@ app.post('/algo' , (req , res)=>{
 
 
 app.get('/webview' , (req , res)=>{
+    console.log("webview called");
    res.render('seating');
 });
 
@@ -162,12 +163,9 @@ function newPrice(diff, number) {
         to: 'd3L8GrhMzpw:APA91bGKIyytJNEk5OO3SLgdwILCaXHSVDPvyXkP8U1ZMfEVRQ5FuQwOw_LzjjfgrU0j-Ov7-ic2HnHp-6hmqk5OQPksg3CrseMMZo-ujK09JbIrspuk8MwDDGgXWV9POKRGB31xdMji', // required fill with device token or topics
         collapse_key: 'your_collapse_key',
         data: {
-            your_custom_data_key: 'random'
-        },
-        notification: {
-            title: 'New Price',
-            body: 'Rs' + price,
-            sound: 'default'
+            your_custom_data_key: 'random',
+            Rishabh: "Khanna",
+            price : "Rs" + price,
         }
     };
 
