@@ -217,7 +217,7 @@ function calculate(){
 
 
 
-app.listen(3000, '192.168.1.101' ,(req , res)=>{
+app.listen(3000,(req , res)=>{
 
     console.log("server started at port 8000");
     calculate();
