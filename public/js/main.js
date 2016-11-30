@@ -1,5 +1,9 @@
 var price = 10; //price
 $(document).ready(function() {
+
+    console.log(window.hall + window.movie + "ssup ??");
+
+
     var $cart = $('#selected-seats'), //Sitting Area
         $counter = $('#counter'), //Votes
         $total = $('#total'); //Total money
@@ -53,7 +57,7 @@ $(document).ready(function() {
                     .appendTo($cart);
 
                 console.log(this.settings.id);
-                
+
 
                 $counter.text(sc.find('selected').length+1);
                 $total.text(recalculateTotal(sc)+price);

@@ -222,6 +222,6 @@ function calculate(){
 app.listen(port,(req , res)=>{
 
     console.log("server started at port 8000");
-    calculate();
+    // calculate();
 });
 
