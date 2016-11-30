@@ -93,37 +93,70 @@ app.post('/algo' , (req , res)=>{
 });
 
 
+app.use('/enquiry' , (req , res)=>{
+   console.log(req.body.hall);
+    console.log(req.body.movie);
+});
+var movie_hall;
+var movie_name;
 app.use('/getbooking',(req, res)=>{
     res.send(booked);
 });
 
 var booked = [];
-function calCase(hall, movie) {
-
+function calCase(hall , movie ) {
+    booked = [];
     max = 10;
     min = 1;
-    for( i = 0 ; i < 50 ; i++) {
-        var x = Math.floor(Math.random() * (max - min) + min);
-        var y = Math.floor(Math.random() * (max - min) + min);
 
-        booked.push(   (x + "_" + y) );
-    }
 
     if(hall == 0){
         if(movie == 0){
+            for( i = 0 ; i < 60 ; i++) {
+                var x = Math.floor(Math.random() * (max - min) + min);
+                var y = Math.floor(Math.random() * (max - min) + min);
 
-
-
+                booked.push(   (x + "_" + y) );
+            }
+            booked.push(hall);
+            booked.push(movie);
             console.log(booked);
 
         }
         if(movie == 1){
 
+            for( i = 0 ; i < 30 ; i++) {
+                var x = Math.floor(Math.random() * (max - min) + min);
+                var y = Math.floor(Math.random() * (max - min) + min);
+
+                booked.push(   (x + "_" + y) );
+            }
+
+            booked.push(hall);
+            booked.push(movie);
+
         }
         if(movie == 2){
 
+            for( i = 0 ; i < 20 ; i++) {
+                var x = Math.floor(Math.random() * (max - min) + min);
+                var y = Math.floor(Math.random() * (max - min) + min);
+
+                booked.push(   (x + "_" + y) );
+            }
+
         }
         if(movie == 3){
+
+            for( i = 0 ; i < 5 ; i++) {
+                var x = Math.floor(Math.random() * (max - min) + min);
+                var y = Math.floor(Math.random() * (max - min) + min);
+
+                booked.push(   (x + "_" + y) );
+            }
+
+            booked.push(hall);
+            booked.push(movie);
 
         }
     }

@@ -6,7 +6,12 @@ $(document).ready(function() {
 
     // console.log(window.seating.info() + "ssup ??");
     $.post('/getbooking' , {} , function (booked) {
+        var len = booked.length;
+        var hall = booked[len-2];
+        var movie = booked[len-1];
         console.log(booked);
+        console.log(booked[len-1]);
+        console.log(booked[len-2]);
         book = booked;
 
 
@@ -63,6 +68,13 @@ $(document).ready(function() {
                         .appendTo($cart);
 
                     console.log( "available" + this.settings.id);
+
+                    $.post('/enquiry' , {
+                        hall:hall,
+                        movie:movie
+                    } , function () {
+
+                    });
 
 
                     $counter.text(sc.find('selected').length + 1);
