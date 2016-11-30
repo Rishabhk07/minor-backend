@@ -21,16 +21,16 @@ $(document).ready(function() {
 
         var sc = $('#seat-map').seatCharts({
             map: [  //Seating chart
-                'bbbbbbbbbb',
-                'bbbbbbbbbb',
-                '__________',
-                'aaaaaaaaaa',
-                'aaaaaaaaaa',
                 'aaaaaaaaaa',
                 'aaaaaaaaaa',
                 '__________',
-                'gggggggggg',
-                'gg__gg__gg'
+                'aaaaaaaaaa',
+                'aaaaaaaaaa',
+                'aaaaaaaaaa',
+                'aaaaaaaaaa',
+                '__________',
+                'aaaaaaaaaa',
+                'aa__aa__aa'
             ],
             seats: {
                 a: {
@@ -69,9 +69,11 @@ $(document).ready(function() {
 
                     console.log( "available" + this.settings.id);
 
+
                     $.post('/enquiry' , {
                         hall:hall,
-                        movie:movie
+                        movie:movie,
+                        left: sc.find('a.available').length
                     } , function () {
 
                     });
