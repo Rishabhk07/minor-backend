@@ -52,6 +52,8 @@ app.get('/ae',(req , res)=>{
     movies.ae.push("A");
 });
 
+
+
 app.post('/algo' , (req , res)=>{
 
     console.log(booking);
@@ -91,10 +93,80 @@ app.post('/algo' , (req , res)=>{
 });
 
 
+app.use('/getbooking',(req, res)=>{
+    res.send(booked);
+});
 
-app.get('/webview' , (req , res)=>{
+var booked = [];
+function calCase(hall, movie) {
+
+    max = 10;
+    min = 1;
+    for( i = 0 ; i < 50 ; i++) {
+        var x = Math.floor(Math.random() * (max - min) + min);
+        var y = Math.floor(Math.random() * (max - min) + min);
+
+        booked.push(   (x + "_" + y) );
+    }
+
+    if(hall == 0){
+        if(movie == 0){
+
+
+
+            console.log(booked);
+
+        }
+        if(movie == 1){
+
+        }
+        if(movie == 2){
+
+        }
+        if(movie == 3){
+
+        }
+    }
+    if(hall == 1){
+        if(movie == 0){
+
+        }
+        if(movie == 1){
+
+        }
+        if(movie == 2){
+
+        }
+        if(movie == 3){
+
+        }
+    }
+    if(hall == 2){
+        if(movie == 0){
+
+        }
+        if(movie == 1){
+
+        }
+        if(movie == 2){
+
+        }
+        if(movie == 3){
+
+        }
+    }
+
+}
+app.use('/webview' , (req , res)=>{
+    var hall = req.body.hall;
+    var movie = req.body.movie;
+    console.log(hall + movie);
+    calCase(hall, movie);
+    console.log(booked);
     console.log("webview called");
+    console.log(booked);
    res.render('seating');
+    console.log("helloe");
 });
 
 app.get('/notice' , (req , res)=>{
@@ -219,7 +291,7 @@ function calculate(){
 
 
 
-app.listen(port,(req , res)=>{
+app.listen(port, '192.168.1.101',(req , res)=>{
 
     console.log("server started at port 8000");
     // calculate();
