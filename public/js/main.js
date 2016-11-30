@@ -1,7 +1,7 @@
 var price = 10; //price
 $(document).ready(function() {
 
-    console.log(window.hall + window.movie + "ssup ??");
+    console.log(window.info() + "ssup ??");
 
 
     var $cart = $('#selected-seats'), //Sitting Area
