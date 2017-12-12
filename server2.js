@@ -1,4 +1,7 @@
 /**
+ * Created by rishabhkhanna on 01/12/16.
+ */
+/**
  * Created by rishabhkhanna on 13/9/16.
  */
 const express = require('express');
@@ -106,38 +109,38 @@ function request( seats_left , requests , index , name , url) {
     console.log("request called");
     console.log(index);
 
-    if ((0 <= no_of_req <= 2) && (15 <= seats_left < 30)) {
+    if ((0 < no_of_req <= 2) && (15 <= seats_left < 30)) {
         dis_per = 40;
         console.log("1");
         console.log("seats left" + seats_left);
         console.log("req" + no_of_req);
     }
-    else if ((0 <= no_of_req <= 2)
+    else if ((0 < no_of_req <= 2)
         && (30 <= seats_left < 45)) {
         dis_per = 60;
         console.log("2");
         console.log("seats left" + seats_left);
     }
-    else if ((0 <= no_of_req <= 2)
+    else if ((0 < no_of_req <= 2)
         && (45 <= seats_left <= 70)) {
         dis_per = 60
         console.log("3");
         console.log("seats left" + seats_left);
     }
-    else if ((3 <= no_of_req < 5)
-        && (15 <= seats_left < 22)) {
+    else if ((3 <= no_of_req <= 5)
+        && (15 <= seats_left < 30)) {
 
         dis_per = 25
         console.log("4");
         console.log("seats left" + seats_left);
     }
-    if ((3 <= no_of_req < 5)
-        && (22 <= seats_left <  45)) {
+    if ((3 <= no_of_req <= 5)
+        && (30 <= seats_left <  45)) {
         dis_per = 40;
         console.log("5");
         console.log("seats left" + seats_left);
     }
-    else if ((3 <= no_of_req < 5)
+    else if ((3 <= no_of_req <= 5)
         && (seats_left >= 45)) {
 
         dis_per = 40
@@ -146,8 +149,8 @@ function request( seats_left , requests , index , name , url) {
     }
 
 
-    else if ((no_of_req >= 5)
-        && (15 < seats_left < 30)) {
+    else if ((no_of_req > 5)
+        && (15 <= seats_left < 30)) {
 
         dis_per = 25
         console.log("7");
@@ -155,7 +158,7 @@ function request( seats_left , requests , index , name , url) {
 
     }
 
-    else if (no_of_req >= Math.floor(0.7 * seats_left)
+    else if (no_of_req > 5
         && (30 <= seats_left < 45)) {
 
         dis_per = 25
@@ -165,7 +168,7 @@ function request( seats_left , requests , index , name , url) {
     }
 
 
-    else if (no_of_req >= Math.floor(0.7 * seats_left)
+    else if (no_of_req > 5
         && (seats_left >= 45)) {
 
         dis_per = 40
@@ -188,7 +191,7 @@ function request( seats_left , requests , index , name , url) {
     };
     fcm.send(message, function (err, response) {
         if (err) {
-            console.log("Something has gone wrong!" + err.message);
+            console.log("Something has gone wrong!");
         } else {
             console.log("Successfully sent with response: ", response);
         }
@@ -447,82 +450,25 @@ function calCase(hall , movie ) {
         }
         if(movie == 1){
 
-            for( i = 0 ; i < 10 ; i++) {
-                var x = Math.floor(Math.random() * (max - min) + min);
-                var y = Math.floor(Math.random() * (max - min) + min);
-
-                booked.push(   (x + "_" + y) );
-            }
-            booked.push(hall);
-            booked.push(movie);
-
         }
         if(movie == 2){
-            for( i = 0 ; i < 20 ; i++) {
-                var x = Math.floor(Math.random() * (max - min) + min);
-                var y = Math.floor(Math.random() * (max - min) + min);
-
-                booked.push(   (x + "_" + y) );
-            }
-            booked.push(hall);
-            booked.push(movie);
 
         }
         if(movie == 3){
-            for( i = 0 ; i < 50 ; i++) {
-                var x = Math.floor(Math.random() * (max - min) + min);
-                var y = Math.floor(Math.random() * (max - min) + min);
-
-                booked.push(   (x + "_" + y) );
-            }
-            booked.push(hall);
-            booked.push(movie);
 
         }
     }
     if(hall == 2){
         if(movie == 0){
-            for( i = 0 ; i < 40 ; i++) {
-                var x = Math.floor(Math.random() * (max - min) + min);
-                var y = Math.floor(Math.random() * (max - min) + min);
-
-                booked.push(   (x + "_" + y) );
-            }
-            booked.push(hall);
-            booked.push(movie);
 
         }
         if(movie == 1){
-            for( i = 0 ; i < 30 ; i++) {
-                var x = Math.floor(Math.random() * (max - min) + min);
-                var y = Math.floor(Math.random() * (max - min) + min);
-
-                booked.push(   (x + "_" + y) );
-            }
-            booked.push(hall);
-            booked.push(movie);
 
         }
         if(movie == 2){
-            for( i = 0 ; i < 20 ; i++) {
-                var x = Math.floor(Math.random() * (max - min) + min);
-                var y = Math.floor(Math.random() * (max - min) + min);
-
-                booked.push(   (x + "_" + y) );
-            }
-            booked.push(hall);
-            booked.push(movie);
 
         }
         if(movie == 3){
-            for( i = 0 ; i < 15 ; i++) {
-                var x = Math.floor(Math.random() * (max - min) + min);
-                var y = Math.floor(Math.random() * (max - min) + min);
-
-                booked.push(   (x + "_" + y) );
-            }
-            booked.push(hall);
-            booked.push(movie);
 
         }
     }
@@ -536,7 +482,7 @@ app.use('/webview' , (req , res)=>{
     console.log(booked);
     console.log("webview called");
     console.log(booked);
-   res.render('seating');
+    res.render('seating');
     console.log("helloe");
 });
 
@@ -544,9 +490,9 @@ app.get('/notice' , (req , res)=>{
     var message = {
         to: 'd3L8GrhMzpw:APA91bGKIyytJNEk5OO3SLgdwILCaXHSVDPvyXkP8U1ZMfEVRQ5FuQwOw_LzjjfgrU0j-Ov7-ic2HnHp-6hmqk5OQPksg3CrseMMZo-ujK09JbIrspuk8MwDDGgXWV9POKRGB31xdMji', // required fill with device token or topics
         collapse_key: 'your_collapse_key',
-         data: {
-             your_custom_data_key: 'random'
-         },
+        data: {
+            your_custom_data_key: 'random'
+        },
         notification: {
             title: '',
             body: 'Minor',
@@ -568,9 +514,9 @@ app.get('/notice' , (req , res)=>{
 });
 
 app.post('/addUser' , (req , res)=>{
-   userAuth.addUser(req.body , (result)=>{
-       console.log(result.ops[0]);
-       res.send(result.ops[0]);
+    userAuth.addUser(req.body , (result)=>{
+        console.log(result.ops[0]);
+        res.send(result.ops[0]);
     });
 });
 
@@ -616,7 +562,7 @@ function newPrice(diff, number) {
 
     fcm.send(message, function(err, response){
         if (err) {
-            console.log("Something has gone wrong!" + err.message);
+            console.log("Something has gone wrong!");
         } else {
             console.log("Successfully sent with response: ", response);
         }
